@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Nexus Consulting | Practical AI automation for small businesses</title>
+<meta name="description" content="AI Nexus Consulting LLC designs and builds custom AI workflows on Claude that cut manual work, save time, and help individuals and small businesses grow.">
+<link rel="canonical" href="https://ainexusconsulting.qzz.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ainexusconsulting.qzz.io/">
+<meta property="og:title" content="AI Nexus Consulting">
+<meta property="og:description" content="Practical AI automation for small businesses, built on Claude.">
+<meta name="theme-color" content="#0E7C7B">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E7C7B'/%3E%3Cpath d='M9 21.5 16 9.5l7 12z' fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round'/%3E%3Cg fill='%23fff'%3E%3Ccircle cx='9' cy='21.5' r='3'/%3E%3Ccircle cx='16' cy='9.5' r='3'/%3E%3Ccircle cx='23' cy='21.5' r='3'/%3E%3C/g%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AI Nexus Consulting LLC",
+  "url": "https://ainexusconsulting.qzz.io/",
+  "email": "hello@ainexusconsulting.qzz.io",
+  "foundingDate": "2025-03-30",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "NM",
+    "addressCountry": "US"
+  }
+}
+</script>
+<style>
+  :root {
+    --bg: #F8F8F5;
+    --surface: #FFFFFF;
+    --text: #141A21;
+    --muted: #5A6470;
+    --line: #E4E3DD;
+    --accent: #0E7C7B;
+    --accent-hover: #0B6766;
+    --on-accent: #FFFFFF;
+    --accent-soft: #E2F0EF;
+    --graph-line: #CDD7D6;
+    --shadow: 0 1px 2px rgba(20, 26, 33, .04), 0 10px 30px rgba(20, 26, 33, .06);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0D1115;
+      --surface: #141A20;
+      --text: #E8EBEE;
+      --muted: #9AA4AE;
+      --line: #232B33;
+      --accent: #3BBFBC;
+      --accent-hover: #5BD0CD;
+      --on-accent: #052524;
+      --accent-soft: #14302F;
+      --graph-line: #2C3B3E;
+      --shadow: none;
+      color-scheme: dark;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .muted { color: var(--muted); font-size: 18px; margin: 0; }
+
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 650; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
+  .brand svg { width: 28px; height: 28px; flex: none; }
+  .mark-bg { fill: var(--accent); }
+  .mark-fg { fill: var(--on-accent); }
+  .mark-line { fill: none; stroke: var(--on-accent); stroke-width: 2; stroke-linejoin: round; }
+  .nav-links { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+  .nav-links a { text-decoration: none; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    height: 44px; padding: 0 20px; border-radius: 999px;
+    background: var(--accent); color: var(--on-accent);
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: background-color .15s ease;
+  }
+  .btn:hover { background: var(--accent-hover); }
+  .nav-links .btn, .nav-links .btn:hover { color: var(--on-accent); }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn.ghost:hover { background: var(--surface); }
+  .btn.small { height: 38px; padding: 0 16px; font-size: 14px; }
+
+  /* Hero */
+  .hero { padding: 88px 0 72px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  h1 { font-size: clamp(36px, 5.2vw, 60px); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 22px; font-weight: 700; }
+  .lede { font-size: 19px; color: var(--muted); max-width: 560px; margin: 0 0 32px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .graph { display: block; width: 100%; height: auto; }
+  .graph .edge { fill: none; stroke: var(--graph-line); stroke-width: 1.5; stroke-dasharray: 3 6; }
+  .graph .spoke { stroke: var(--accent); stroke-opacity: .45; stroke-width: 1.5; }
+  .graph .pill { fill: var(--surface); stroke: var(--line); }
+  .graph .label { fill: var(--muted); font-size: 13px; font-weight: 500; }
+  .graph .halo { fill: var(--accent); opacity: .12; }
+  .graph .hub { fill: var(--accent); }
+  .graph .hub-label { fill: var(--on-accent); font-size: 14px; font-weight: 650; }
+  .graph .packet { fill: var(--accent); }
+
+  section { scroll-margin-top: 72px; }
+  .section { padding: 80px 0; border-top: 1px solid var(--line); }
+  .section-head { max-width: 660px; margin-bottom: 44px; }
+  h2 { font-size: clamp(28px, 3.4vw, 38px); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 14px; }
+  h3 { font-size: 19px; line-height: 1.3; margin: 0 0 8px; letter-spacing: -0.01em; }
+
+  /* Services */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px; box-shadow: var(--shadow); }
+  .icon { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 18px; }
+  .icon svg { width: 22px; height: 22px; }
+  .card p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* Approach */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; list-style: none; padding: 0; margin: 0; }
+  .step { padding-top: 22px; border-top: 2px solid var(--accent); }
+  .step-num { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--accent); }
+  .step h3 { margin-top: 8px; }
+  .step p { color: var(--muted); margin: 0; font-size: 16px; }
+
+  /* Built on Claude */
+  .stack { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
+  .chip { font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
+  .principles { display: grid; gap: 20px; margin: 0; padding: 0; list-style: none; }
+  .principles li { display: grid; grid-template-columns: 22px 1fr; gap: 14px; }
+  .principles svg { width: 20px; height: 20px; color: var(--accent); margin-top: 3px; }
+  .principles strong { display: block; font-size: 17px; }
+  .principles span { color: var(--muted); font-size: 16px; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1.2fr .8fr; gap: 56px; align-items: start; }
+  .facts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 12px 24px; font-size: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px 28px; }
+  .facts dt { color: var(--muted); }
+  .facts dd { margin: 0; font-weight: 600; }
+
+  /* Contact */
+  .contact-card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 56px 48px; text-align: center; box-shadow: var(--shadow); }
+  .contact-card p { color: var(--muted); max-width: 540px; margin: 0 auto 28px; font-size: 18px; }
+  .contact-meta { margin-top: 20px; font-size: 14px; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 14px; color: var(--muted); }
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+  .foot a { color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .hero { padding: 56px 0 48px; }
+    .hero-grid, .stack, .about { grid-template-columns: 1fr; gap: 36px; }
+    .graph-wrap { max-width: 440px; }
+    .steps { grid-template-columns: 1fr; }
+    .nav-links a:not(.btn) { display: none; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 16px; }
+    .cards { grid-template-columns: 1fr; }
+    .card { padding: 22px; }
+    .section { padding: 60px 0; }
+    .contact-card { padding: 36px 20px; }
+    .lede, .muted, .contact-card p { font-size: 17px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="AI Nexus Consulting home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect class="mark-bg" width="32" height="32" rx="8"/><path class="mark-line" d="M9 21.5 16 9.5l7 12z"/><g class="mark-fg"><circle cx="9" cy="21.5" r="3"/><circle cx="16" cy="9.5" r="3"/><circle cx="23" cy="21.5" r="3"/></g></svg>
+      AI Nexus Consulting
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a class="btn small" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">AI automation consulting</span>
+        <h1>Practical AI that gives your business its time back.</h1>
+        <p class="lede">AI Nexus Consulting designs and builds custom AI workflows for individuals and small businesses. We automate the repetitive, document-heavy work that fills your week, so you can spend it on the work that grows revenue.</p>
+        <div class="cta-row">
+          <a class="btn" href="mailto:hello@ainexusconsulting.qzz.io">Start a conversation</a>
+          <a class="btn ghost" href="#services">What we build</a>
+        </div>
+      </div>
+      <div class="graph-wrap" aria-hidden="true">
+        <svg class="graph" viewBox="0 0 480 420">
+          <path class="edge" d="M248 44 L400 92 L404 250 L318 372 L132 360 L64 232 L96 96 Z"/>
+          <g class="spokes">
+            <line class="spoke" x1="240" y1="210" x2="96" y2="96"/>
+            <line class="spoke" x1="240" y1="210" x2="248" y2="44"/>
+            <line class="spoke" x1="240" y1="210" x2="400" y2="92"/>
+            <line class="spoke" x1="240" y1="210" x2="404" y2="250"/>
+            <line class="spoke" x1="240" y1="210" x2="318" y2="372"/>
+            <line class="spoke" x1="240" y1="210" x2="132" y2="360"/>
+            <line class="spoke" x1="240" y1="210" x2="64" y2="232"/>
+          </g>
+          <circle class="packet" cx="161" cy="147" r="4"/>
+          <circle class="packet" cx="330" cy="232" r="4"/>
+          <circle class="packet" cx="181" cy="292" r="4"/>
+          <circle class="halo" cx="240" cy="210" r="80"/>
+          <circle class="hub" cx="240" cy="210" r="54"/>
+          <text class="hub-label" x="240" y="210" text-anchor="middle" dy="0.35em">AI workflow</text>
+          <g>
+            <rect class="pill" x="64" y="81" width="64" height="30" rx="15"/>
+            <text class="label" x="96" y="96" text-anchor="middle" dy="0.35em">Email</text>
+            <rect class="pill" x="200" y="29" width="96" height="30" rx="15"/>
+            <text class="label" x="248" y="44" text-anchor="middle" dy="0.35em">Documents</text>
+            <rect class="pill" x="371" y="77" width="58" height="30" rx="15"/>
+            <text class="label" x="400" y="92" text-anchor="middle" dy="0.35em">CRM</text>
+            <rect class="pill" x="346" y="235" width="116" height="30" rx="15"/>
+            <text class="label" x="404" y="250" text-anchor="middle" dy="0.35em">Spreadsheets</text>
+            <rect class="pill" x="274" y="357" width="88" height="30" rx="15"/>
+            <text class="label" x="318" y="372" text-anchor="middle" dy="0.35em">Invoices</text>
+            <rect class="pill" x="88" y="345" width="88" height="30" rx="15"/>
+            <text class="label" x="132" y="360" text-anchor="middle" dy="0.35em">Calendar</text>
+            <rect class="pill" x="23" y="217" width="82" height="30" rx="15"/>
+            <text class="label" x="64" y="232" text-anchor="middle" dy="0.35em">Support</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>Automation built around how you already work</h2>
+        <p class="muted">We start from your real processes and tools, not from a generic chatbot. Every engagement is scoped to a measurable result: hours saved, faster turnaround, fewer errors.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.9-3M4 13a8 8 0 0 0 14.9 3"/><path d="M4 4v4h4M20 20v-4h-4"/></svg></div>
+          <h3>Workflow automation</h3>
+          <p>We map a repetitive process end to end, from intake and data entry to follow-ups and reporting, and turn it into an AI-assisted workflow, with people approving the steps that matter.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+          <h3>Document intelligence</h3>
+          <p>Extract, summarize, and route information from PDFs, emails, contracts, and receipts, turning long documents into structured data your systems can use.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></div>
+          <h3>AI assistants and agents</h3>
+          <p>Custom assistants that draft replies, answer common questions, and take actions in the tools you already use, always with a human in the loop.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2V16h5v-.2c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg></div>
+          <h3>AI adoption and training</h3>
+          <p>Hands-on guidance to choose the right first use case, set sensible guardrails, and get your team productive with AI tools.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Approach</span>
+        <h2>Small, measurable wins first</h2>
+        <p class="muted">We prove value on one task before expanding, so every next step is backed by results.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">01</span>
+          <h3>Discover</h3>
+          <p>We pick one high-value task together and measure what it costs you today in time and errors.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <h3>Build</h3>
+          <p>We prototype on Claude in days, not months, and iterate with your real data and edge cases.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <h3>Deploy and measure</h3>
+          <p>We ship with guardrails and monitoring, report the time saved, and decide together on the next workflow.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="stack">
+    <div class="wrap stack">
+      <div>
+        <span class="eyebrow">Built on Claude</span>
+        <h2>Frontier models, applied carefully</h2>
+        <p class="muted">We build on Claude, Anthropic's family of AI models, for its strong reasoning, careful handling of long documents, and focus on safety. Integrations use the open Model Context Protocol, so automations plug into the software you already run.</p>
+        <ul class="chips">
+          <li class="chip">Claude API</li>
+          <li class="chip">Claude Code</li>
+          <li class="chip">Model Context Protocol</li>
+        </ul>
+      </div>
+      <ul class="principles">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <div><strong>Human in the loop</strong><span>People review and approve consequential actions, such as sending, paying, or deleting, before they happen.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <div><strong>Least access</strong><span>Each automation gets only the permissions its task needs, and its actions are logged.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <div><strong>Plain-English handoff</strong><span>You get documentation your team can read, and the workflow is yours to keep.</span></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap about">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>A founder-led studio with a simple mission</h2>
+        <p class="muted">AI Nexus Consulting LLC helps individuals and companies use AI to reduce manual labor, save time, and grow. As a founder-led firm, we take on a small number of engagements at a time, so each one gets direct attention from scoping to launch.</p>
+      </div>
+      <dl class="facts">
+        <dt>Company</dt><dd>AI Nexus Consulting LLC</dd>
+        <dt>Founded</dt><dd>2025</dd>
+        <dt>Organized in</dt><dd>New Mexico, USA</dd>
+        <dt>Engagements</dt><dd>Remote, across the U.S.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <span class="eyebrow">Contact</span>
+        <h2>Have a task that eats your week?</h2>
+        <p>Send a short description of the process. We'll reply with an honest take on whether AI can help, and what it would take.</p>
+        <a class="btn" href="mailto:hello@ainexusconsulting.qzz.io">hello@ainexusconsulting.qzz.io</a>
+        <div class="contact-meta">AI Nexus Consulting LLC · New Mexico, USA</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> AI Nexus Consulting LLC. All rights reserved.</span>
+    <span><a href="mailto:hello@ainexusconsulting.qzz.io">hello@ainexusconsulting.qzz.io</a></span>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
